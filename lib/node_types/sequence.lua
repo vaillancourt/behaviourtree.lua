@@ -4,6 +4,7 @@ local BranchNode  = require(_PACKAGE..'/node_types/branch_node')
 local Sequence = class('Sequence', BranchNode)
 
 function Sequence:success()
+  print("Sequence:success() " .. self.name)
   BranchNode.success(self)
   self.actualTask = self.actualTask + 1
   if self.actualTask <= #self.nodes then
