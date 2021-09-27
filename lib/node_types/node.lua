@@ -14,9 +14,9 @@ function Node:initialize(config)
   end
 end
 
-function Node:start() end
-function Node:finish() end
-function Node:run() end
+function Node:start(object) end
+function Node:finish(object) end
+function Node:run(object) end
 
 function Node:call_run(object)
   success = function() self:success() end
