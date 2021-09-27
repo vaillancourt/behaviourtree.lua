@@ -5,15 +5,11 @@ local RepeatDecorator = class('RepeatDecorator', Decorator)
 
 
 function RepeatDecorator:start(object)
-  print("RepeatDecorator:start() " .. self.name .. " isObject=" .. ((object and "yes") or "no"))
-
   self:setObject(object)
   Decorator.start(self, object)
 end
 
 function RepeatDecorator:success()
-  print("RepeatDecorator:success() " .. self.name)
-
   self.node:finish(self.object)
   self.node:start(self.object)
 
@@ -21,8 +17,6 @@ function RepeatDecorator:success()
 end
 
 function RepeatDecorator:fail()
-  print("RepeatDecorator:fail() " .. self.name)
-
   self.control:success()
 end
 
